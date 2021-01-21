@@ -7,16 +7,16 @@ with payments AS (
 pivoted AS
 (
 select
-order_id,
-{% for payment_method in payment_methods %}
+ORDERID AS order_id,
+{% for paymentmethod in payment_methods %}
 
-sum(case when payment_method = '{{payment_method}}' then amount end) as {{payment_method}}_amount
+sum(case when paymentmethod = '{{payment_method}}' then amount end) as {{paymentmethod}}_amount
 
 {% if not loop.last %},{%- endif -%}
 {% endfor %}
 
-from {{ ref('raw_payments') }}
+from {{ ref('stg_payments') }}
 group by 1
 )
 
-select * from pivoted
+select * from payments
