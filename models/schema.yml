@@ -1,6 +1,27 @@
 version: 2
 
 models:
+  - name: orders
+    description: Shows total order amount by customer
+    columns:
+      - name: order_id
+        description: Primary key
+        tests:
+          - unique
+          - not_null  
+      - name: customer_id
+        description: Multiple records per customer
+        tests:
+          - not_null
+      - name: order_date
+        description: date order was created
+        tests:
+          - not_null
+      - name: amount
+        description: amount of order in cents
+        tests:
+          - not_null
+
   - name: customers
     description: One record per customer
     columns:
