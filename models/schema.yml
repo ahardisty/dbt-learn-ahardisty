@@ -33,3 +33,13 @@ models:
         tests:
           - accepted_values:
               values: ['placed', 'shipped', 'completed', 'return_pending', 'returned']
+
+
+
+# - name: orders
+#     columns:
+#       - name: amount
+#         description: Amount in USD
+#         tests:
+#           - better_than_before:
+#               date_or_ts_column: order_date              
