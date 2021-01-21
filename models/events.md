@@ -3,10 +3,9 @@
 One of the following values:
 | status         | definition                                                 |
 |----------------|------------------------------------------------------------|
-| placed         | Order placed but not yet shipped                           |
-| shipped        | Order has been shipped but hasn't yet been delivered       |
-| completed      | Order has been received by customers                       |
-| return_pending | Customer has indicated they would like to return this item |
-| returned       | Item has been returned                                     |
+| credit_card    | Order paid by credit_card                                |
+| coupon         | Order paid by coupon                                     |
+| bank_transfer  | Order paid by bank_transfer                              |
+| gift_card      | Order paid by gift_card                                  |
 
 {% enddocs %}
