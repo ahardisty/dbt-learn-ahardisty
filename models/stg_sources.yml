@@ -2,16 +2,20 @@ version: 2
 
 sources:
   - name: jaffle_shop
+    description: Raw data from jaffle transactions
     database: raw
     tables:
       - name: customers
+        description: table with raw customer data
         columns:
           - name: id
+            description: customer id
             tests:
               - not_null
               - unique
 
   - name: stripe
+    description: Raw payment data from stripe
     database: raw
     tables:
       - name: payment
@@ -20,7 +24,10 @@ sources:
         freshness:
           warn_after: {count: 12, period: hour}
           error_after: {count: 24, period: hour}
-  
-  
-  
-  
+          
+        columns: 
+          - name: paymentmethod
+            description: "{{ doc('payment_methods') }}"
+            tests:
+              - accepted_values:
+                  values: ['credit_card', 'coupon', 'bank_transfer', 'gift_card']
