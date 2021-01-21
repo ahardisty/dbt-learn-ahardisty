@@ -23,4 +23,5 @@ previous_three as (
 )
 select count(*) from previous_three
 where daily_total < previous_3_order_amount_avg
+
 {% endmacro %}
