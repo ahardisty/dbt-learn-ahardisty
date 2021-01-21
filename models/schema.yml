@@ -13,6 +13,14 @@ models:
         description: Multiple records per customer
         tests:
           - not_null
+      - name: order_date
+        description: date order was created
+        tests:
+          - not_null
+      - name: amount
+        description: amount of order in cents
+        tests:
+          - not_null
 
   - name: customers
     description: One record per customer
