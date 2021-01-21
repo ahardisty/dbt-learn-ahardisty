@@ -7,7 +7,7 @@ FROM
     {{ ref('stg_payments') }}
 
     {% endset %}
-    
+
     {% set results = run_query(get_payment_methods_sql) %}
     {% if execute %}
         {% set payment_methods = results.columns ['PAYMENT_METHOD'].values() %}
