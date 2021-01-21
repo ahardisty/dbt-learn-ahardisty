@@ -1,6 +1,19 @@
 version: 2
 
 models:
+  - name: orders
+    description: Shows total order amount by customer
+    columns:
+      - name: order_id
+        description: Primary key
+        tests:
+          - unique
+          - not_null  
+      - name: customer_id
+        description: Multiple records per customer
+        tests:
+          - not_null
+
   - name: customers
     description: One record per customer
     columns:
@@ -33,6 +46,8 @@ models:
         tests:
           - accepted_values:
               values: ['placed', 'shipped', 'completed', 'return_pending', 'returned']
+
+
 
 sources:
   - name: jaffle_shop
